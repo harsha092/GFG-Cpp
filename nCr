@@ -1,4 +1,4 @@
-ncR
+Given two integers n and r, find nCr. Since the answer may be very large, calculate the answer modulo 109+7.
  int nCr(int n, int r){
         // code here
         int mod=1e9+7;
