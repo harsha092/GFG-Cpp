@@ -1,0 +1,40 @@
+Quick Sort is a Divide and Conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot.
+Given an array arr[], its starting position is low (the index of the array) and its ending position is high(the index of the array).
+
+Note: The low and high are inclusive.
+
+Implement the partition() and quickSort() functions to sort the array.
+
+
+public:
+    //Function to sort an array using quick sort algorithm.
+    void quickSort(int arr[], int low, int high)
+    {
+        // code here
+        if(low<high){
+            int par=partition(arr, low, high);
+            quickSort(arr, low, par-1);
+            quickSort(arr, par+1, high);
+        }
+    }
+    
+    public:
+    int partition (int arr[], int low, int high)
+    {
+       // Your code here
+       int p=low;
+       int i=low, j=high;
+        while(i<j){
+            while(arr[i]<=arr[p]){
+                i++;
+            }
+            while(arr[j]>arr[p]){
+                j--;
+            }
+            if(i<j){
+                swap(arr[i], arr[j]);
+            }
+        }
+        swap(arr[p],arr[j]);
+        return j;
+       }
