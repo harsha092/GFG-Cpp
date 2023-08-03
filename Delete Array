@@ -1,0 +1,38 @@
+Here, we'll learn the delete keyword that's used to clear the dynamically allocated memory in CPP.
+
+Given a dynamic array A of size N. The task is to find the sum of array elements.
+
+
+
+public:
+    //Function to sort an array using quick sort algorithm.
+    void quickSort(int arr[], int low, int high)
+    {
+        // code here
+        if(low<high){
+            int par=partition(arr, low, high);
+            quickSort(arr, low, par-1);
+            quickSort(arr, par+1, high);
+        }
+    }
+    
+    public:
+    int partition (int arr[], int low, int high)
+    {
+       // Your code here
+       int p=low;
+       int i=low, j=high;
+        while(i<j){
+            while(arr[i]<=arr[p]){
+                i++;
+            }
+            while(arr[j]>arr[p]){
+                j--;
+            }
+            if(i<j){
+                swap(arr[i], arr[j]);
+            }
+        }
+        swap(arr[p],arr[j]);
+        return j;
+       }
