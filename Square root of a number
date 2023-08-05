@@ -1,0 +1,25 @@
+Given an integer x, find the square root of x. If x is not a perfect square, then return floor(√x).
+
+ 
+
+
+
+
+
+// Function to find square root
+// x: element to find square root
+class Solution{
+  public:
+    long long int floorSqrt(long long int x) 
+    {
+        // Your code goes here 
+        long long a=0,l=0,h=x;
+        while(l<=h){
+            long long mid=(l+h)/2;
+            if(mid*mid<=x) {a=mid; l=mid+1;}
+            else h=mid-1;
+        }
+        return a;
+   
+    }
+};
