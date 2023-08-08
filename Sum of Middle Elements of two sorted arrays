@@ -1,0 +1,37 @@
+Given 2 sorted arrays Ar1 and Ar2 of size N each. Merge the given arrays and find the sum of the two middle elements of the merged array.
+Example 1:
+
+Input:
+N = 5
+Ar1[] = {1, 2, 4, 6, 10}
+Ar2[] = {4, 5, 6, 9, 12}
+Output: 11
+Explanation: The merged array looks like
+{1,2,4,4,5,6,6,9,10,12}. Sum of middle
+elements is 11 (5 + 6).
+
+
+//User function template for C++
+
+class Solution {
+public:
+    int findMidSum(int ar1[], int ar2[], int n) {
+        int it1 = n-1;
+        int it2 = 0;
+        
+        while(it1>=0 && it2<n)
+        {
+            if(ar1[it1]>ar2[it2]){
+                swap(ar1[it1], ar2[it2]);
+                it1--;
+                it2++;
+            }
+            else break;
+        }
+        
+        sort(ar1, ar1+n);
+        sort(ar2, ar2+n);
+        
+        return (ar1[n-1] + ar2[0]);
+    }
+};
