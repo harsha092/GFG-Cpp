@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int divideAndConquerMultiply(int a, int b, int n) {
+    if (n == 1) {
+        return a * b;
+    }
+
+    int m = n/2;
+    int x=pow(10,m);
+    int a1 = a /x;
+    int a0 = a %x;
+    int b1 = b /x;
+    int b0 = b %x;
+    int c1=  divideAndConquerMultiply(a1, b1, m);
+    int c0 = divideAndConquerMultiply(a0,b0, m);
+    int c2 = divideAndConquerMultiply(a1 + a0, b1 + b0,m) - a1*b1 - a0*b0 ;
+    
+    int f= c1*pow(10,n) + c2*pow(10,m) + c0;
+    return f;
+}
+
+int main() {
+    int a,b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    int n = max(to_string(a).length(), to_string(b).length());
+    int result = divideAndConquerMultiply(a,b, n);
+
+    cout << "The product of " << a << " and " << b << " is " << result << endl;
+
+    return 0;
+}
