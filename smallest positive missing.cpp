@@ -9,7 +9,7 @@ class Solution
         for(int i=0;i<n;i++){
             if(arr[i]<=0) {continue;}
             if(arr[i]==count) count++;
-            else{ return count;}
+            else if(arr[i]>count){ return count;}
         }
         return count;
     }
